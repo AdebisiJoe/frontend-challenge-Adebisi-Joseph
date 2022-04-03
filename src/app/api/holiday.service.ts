@@ -12,5 +12,51 @@ import { Country } from "../models/country";
 })
 export class HolidayService {
 
-  constructor() { }
+  public country: Observable<Country>;
+
+  constructor(private http: HttpClient) { 
+
+  }
+
+
+
+  getCountries() {
+    const http_object = new HttpHeaders({
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${environment.apiToken}`
+    });
+    const httpOtions = {
+      headers: http_object,
+    };
+    return this.http
+      .post<Country>(
+        `${environment.apiUrl}holidays/Countries`,
+        {},
+        httpOtions
+      ).toPromise();
+
+  }
+
+
+  getACountryHolidays(country_code:string,year:number) {
+  
+    
+    const http_object = new HttpHeaders({
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${environment.apiToken}`
+    });
+    const httpOtions = {
+      headers: http_object,
+    };
+    return this.http
+      .post(
+        `${environment.apiUrl}holidays/List`,
+        {country_code,year},
+        httpOtions
+      ).toPromise();
+  }
+
+
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { HolidayService } from 'src/app/api/holiday.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  constructor(private holidayService: HolidayService, private router: Router) { }
 
-  ngOnInit() {
+  private countries;
+  private holidays;
+
+  async ngOnInit() {
+    this.countries=await this.holidayService.getCountries();
+
+    console.log(this.countries.countries[0].code);   
+
+    this.holidays=await this.holidayService.getACountryHolidays(this.countries.countries[0].code,2022);
+
+    console.log(this.holidays);   
+
   }
 
 }
