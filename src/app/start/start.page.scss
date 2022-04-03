@@ -7,7 +7,7 @@ ion-content{
   height: 100vh;
   width: 100%;
   display: flex;
-  //background: url('../../assets/home_screen_page.png');
+  background: url('../../assets/startbackground.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;
@@ -23,12 +23,12 @@ ion-card{
 
  img{
      margin-top: 110px;
-     height: 7rem;
-     width: 7.2rem;
+     height: 12rem;
+     width: 12.2rem;
  }
  ion-card-title{
      font-size: 20px;
-     color: #D2EDDD;
+     color: #0B3142;
      font-weight: 500;
 
  }
@@ -41,7 +41,7 @@ ion-card{
       width: 180px;
       height: 60px;
       --border-radius: 40px;
-      --background: #275C3C;
+      --background: #473BF0;
       color:#fff;
       font-weight: 400;
       text-transform: none;
@@ -54,7 +54,7 @@ ion-card{
     .background-filter{
         height: 100%;
         width: 100%;
-        background: rgba(39,92,60,0.9);
+       // background: rgba(39,92,60,0.9);
         display: flex;
         flex-direction: column;
         justify-content: center;

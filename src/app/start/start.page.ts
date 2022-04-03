@@ -14,7 +14,7 @@ export class StartPage implements OnInit {
   }
 
   loginPage(){
-    this.route.navigate(['login']) 
+    this.route.navigate(['auth/login']) 
    }
 
 
