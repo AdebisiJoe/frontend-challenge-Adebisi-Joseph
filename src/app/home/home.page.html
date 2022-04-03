@@ -13,7 +13,7 @@
   <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
   <ion-list   *ngFor="let country of countries | filter:filterTerm">
     <!-- <ion-list-header>Countries</ion-list-header> -->
-    <ion-item>
+    <ion-item   (click)="gotoDetail(country.code)">
       <ion-avatar slot="start">
         <ion-icon name="flag"></ion-icon>
       </ion-avatar>

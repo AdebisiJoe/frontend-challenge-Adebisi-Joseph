@@ -13,23 +13,21 @@ export class HomePage implements OnInit {
 
   constructor(private holidayService: HolidayService, private router: Router) { }
 
-  private countries;
-  private holidays;
+  private countries:string[];
+  
 
   async ngOnInit() {
     this.holidayService.getCountries().subscribe((data) => {
 			this.countries = data.countries;
       console.log(this.countries);
-    });
+    });  
 
-   
+  }
 
-   // console.log(this.countries.countries[0].code);   
 
-    //this.holidays=await this.holidayService.getACountryHolidays(this.countries.countries[0].code,2022);
-
-    //console.log(this.holidays);   
-
+  async gotoDetail(country_code:string){
+    console.log(country_code);
+     this.router.navigateByUrl(`/detail/${country_code}`);
   }
 
 }

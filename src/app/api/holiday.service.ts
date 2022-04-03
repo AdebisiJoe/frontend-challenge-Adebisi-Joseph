@@ -37,7 +37,7 @@ export class HolidayService {
       ).pipe(
         map((data: any) => data),
         catchError((err) => {
-          return throwError("Problem fetching news from API, error: ", err);
+          return throwError("Problem fetching countries from API, error: ", err);
         })
       );
 
@@ -60,7 +60,12 @@ export class HolidayService {
         `${environment.apiUrl}holidays/List`,
         {country_code,year},
         httpOtions
-      ).toPromise();
+      ).pipe(
+        map((data: any) => data),
+        catchError((err) => {
+          return throwError("Problem fetching holidays from API, error: ", err);
+        })
+      );
   }
 
 

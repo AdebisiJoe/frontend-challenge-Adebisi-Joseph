@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="primary"></ion-back-button>
+    </ion-buttons>
     <ion-title>detail</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="ion-text-center" *ngIf="!holidays">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+  
+  <ion-list   *ngFor="let holiday of holidays">
+    <!-- <ion-list-header>Countries</ion-list-header> -->
+    <ion-item  >
+      <ion-avatar slot="start">
+        <ion-icon name="today-outline"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+      <h3>{{holiday.name}}</h3>  
+      <p>{{holiday.local_name}}</p>
+      <p>{{holiday.date}}</p>
+    </ion-label>
+    </ion-item>
 
+   </ion-list>
 </ion-content>
