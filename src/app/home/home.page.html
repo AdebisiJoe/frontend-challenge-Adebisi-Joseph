@@ -6,4 +6,20 @@
 
 <ion-content>
 
+
+  <div class="ion-text-center" *ngIf="!countries">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+  <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+  <ion-list   *ngFor="let country of countries | filter:filterTerm">
+    <!-- <ion-list-header>Countries</ion-list-header> -->
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-icon name="flag"></ion-icon>
+      </ion-avatar>
+      <ion-label>{{country.name}}</ion-label>
+    </ion-item>
+
+   </ion-list> 
+
 </ion-content>

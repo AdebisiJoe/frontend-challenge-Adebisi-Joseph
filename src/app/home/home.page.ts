@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { HolidayService } from 'src/app/api/holiday.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -16,13 +17,18 @@ export class HomePage implements OnInit {
   private holidays;
 
   async ngOnInit() {
-    this.countries=await this.holidayService.getCountries();
+    this.holidayService.getCountries().subscribe((data) => {
+			this.countries = data.countries;
+      console.log(this.countries);
+    });
 
-    console.log(this.countries.countries[0].code);   
+   
 
-    this.holidays=await this.holidayService.getACountryHolidays(this.countries.countries[0].code,2022);
+   // console.log(this.countries.countries[0].code);   
 
-    console.log(this.holidays);   
+    //this.holidays=await this.holidayService.getACountryHolidays(this.countries.countries[0].code,2022);
+
+    //console.log(this.holidays);   
 
   }
 
