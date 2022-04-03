@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl:"https://api.m3o.com/v1/",
+  apiToken:'ZTRmOWMwZGEtNTE5Yi00MmM2LThiYmUtOTdmMGI3MTNiZjU5'
 };
 
 /*
